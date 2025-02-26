@@ -30,15 +30,10 @@ namespace Parcialnumero1
                 }
             }
 
-            ProcesarNumeros(coeficientes);
+           
 
         }
 
-        private void ProcesarNumeros(double[] valores)
-        {
-            double resultado = valores[0] + valores[1] * valores[2]; // Ejemplo de cálculo
-            MessageBox.Show("El resultado es: " + resultado);
-        }
 
     }
 }
