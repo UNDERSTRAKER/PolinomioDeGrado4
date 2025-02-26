@@ -23,7 +23,8 @@ namespace Parcialnumero1
 
             TextBox[] coefBox = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
             double[] coeficientes = new double[7];
-
+            TextBox[] coefBoxMiMa = { txtXMin, txtXMax, txtYMin, txtYMax };
+            i= 7;
             for (int i = 0; i < coefBox.Length; i++)
             {
                 if (!double.TryParse(coefBox[i].Text, out coeficientes[i]))

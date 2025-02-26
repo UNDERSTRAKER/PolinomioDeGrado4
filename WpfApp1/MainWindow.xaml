@@ -11,10 +11,11 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="31*"/>
             <ColumnDefinition Width="369*"/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Left" Height="414" VerticalAlignment="Center" Width="780" Grid.ColumnSpan="2" Margin="10,0,0,0">
+        <TabControl HorizontalAlignment="Left" Height="414" VerticalAlignment="Center" Width="780" Grid.ColumnSpan="3" Margin="10,0,0,0">
             <TabItem Header="Entrada">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
