@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parcialnumero1"
         mc:Ignorable="d"
-        Title="Calculadora " Height="450" Width="800">
+        Title="Polinomio de Grado 4 " Height="450" Width="800">
 
 
 

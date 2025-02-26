@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using WpfApp1.Model;
 
 namespace Parcialnumero1
 {
@@ -18,6 +19,8 @@ namespace Parcialnumero1
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
         {
 
+            
+
             TextBox[] coefBox = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
             double[] coeficientes = new double[7];
 
@@ -30,10 +33,11 @@ namespace Parcialnumero1
                 }
             }
 
-           
+            Ecuacion ecuacion = new Ecuacion(coeficientes);
 
+            MessageBox.Show($"El resultado de la ecuación es: {ecuacion.Calcular()}");
         }
 
-
     }
+
 }
