@@ -1,0 +1,115 @@
+﻿<Window x:Class="Parcialnumero1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parcialnumero1"
+        mc:Ignorable="d"
+        Title="Calculadora " Height="450" Width="800">
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="369*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="414" VerticalAlignment="Center" Width="780" Grid.ColumnSpan="2" Margin="10,0,0,0">
+            <TabItem Header="Entrada">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Coeficientes" Grid.Column="0" Margin="5,5,392,160">
+                        <StackPanel Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Content="m:" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox x:Name="txtM" Grid.Row="0" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="n:" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox x:Name="txtN" Grid.Row="1" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="p:" Grid.Row="2" Grid.Column="0"/>
+                                <TextBox x:Name="txtP" Grid.Row="2" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="q:" Grid.Row="3" Grid.Column="0"/>
+                                <TextBox x:Name="txtQ" Grid.Row="3" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="r:" Grid.Row="4" Grid.Column="0"/>
+                                <TextBox x:Name="txtR" Grid.Row="4" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="s:" Grid.Row="5" Grid.Column="0"/>
+                                <TextBox x:Name="txtS" Grid.Row="5" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="t:" Grid.Row="6" Grid.Column="0"/>
+                                <TextBox x:Name="txtT" Grid.Row="6" Grid.Column="1" Margin="2"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Rangos" Margin="392,5,5,176">
+                        <StackPanel Margin="5,0,5,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Content="X Mínimo:" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox x:Name="txtXMin" Grid.Row="0" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="X Máximo:" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox x:Name="txtXMax" Grid.Row="1" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="Y Mínimo:" Grid.Row="2" Grid.Column="0"/>
+                                <TextBox x:Name="txtYMin" Grid.Row="2" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="Y Máximo:" Grid.Row="3" Grid.Column="0"/>
+                                <TextBox x:Name="txtYMax" Grid.Row="3" Grid.Column="1" Margin="2"/>
+
+                                <Label Content="Z Mínimo:" Grid.Row="4" Grid.Column="0"/>
+                                <TextBox x:Name="txtZMin" Grid.Row="4" Grid.Column="1" Margin="2" IsReadOnly="True"/>
+
+                                <Label Content="Z Máximo:" Grid.Row="5" Grid.Column="0"/>
+                                <TextBox x:Name="txtZMax" Grid.Row="5" Grid.Column="1" Margin="2" IsReadOnly="True"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                    <Button x:Name="btnCalcular" Content="Calcular" HorizontalAlignment="Center" Height="55" Margin="0,321,0,0" VerticalAlignment="Top" Width="722" BorderBrush="Black" Background="#FF98C69F" Click="btnCalcular_Click"/>
+                </Grid>
+
+
+            </TabItem>
+            <TabItem Header="Resultados">
+                <DataGrid
+                    
+                x:Name="dataGrid" AutoGenerateColumns="True" 
+                         ItemsSource="{Binding Results}" IsReadOnly="True"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
