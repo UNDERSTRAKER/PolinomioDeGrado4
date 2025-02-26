@@ -9,12 +9,14 @@ namespace WpfApp1.Model
     public class Ecuacion
     {
         public double[] Coeficientes { get; set; }
+        
 
         public Ecuacion(double[] coeficientes)
         {
             Coeficientes = coeficientes;
-        }
 
+        }
+        
         public double Calcular()
         {
             int x = 1;
