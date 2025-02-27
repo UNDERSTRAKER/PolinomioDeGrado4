@@ -19,13 +19,11 @@ namespace Parcialnumero1
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
         {
 
-            
-
             TextBox[] coefBox = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
             double[] coeficientes = new double[7];
             TextBox[] coefBoxMiMa = { txtXMin, txtXMax, txtYMin, txtYMax };
-            
-        
+            double[] coefBoxMiMa1 = new double[4];
+                
             for (int i = 0; i < coefBox.Length; i++)
             {
                 if (!double.TryParse(coefBox[i].Text, out coeficientes[i]))
@@ -34,10 +32,22 @@ namespace Parcialnumero1
                     return;
                 }
             }
+            for (int i = 0; i < coefBoxMiMa.Length; i++)
+            {
+                if (!double.TryParse(coefBoxMiMa[i].Text, out coefBoxMiMa1[i]))
+                {
+                    MessageBox.Show("Ingrese valores numéricos válidos en todos los campos.");
+                    return;
+                }
+            }
 
-            Ecuacion ecuacion = new Ecuacion(coeficientes);
+            Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
+            List<double> resultados = ecuacion.Calcular();
 
-            MessageBox.Show($"El resultado de la ecuación es: {ecuacion.Calcular()}");
+            foreach (var resultado in resultados)
+            {
+                MessageBox.Show($"El resultado es {resultado}");
+            }
         }
 
     }
