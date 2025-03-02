@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.Model;
 
@@ -41,9 +38,14 @@ namespace Parcialnumero1
                 }
 
                 Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
-                List<double> resultados = ecuacion.Calcular();
+                ecuacion.Calcular();
 
-                dataGrid.ItemsSource = resultados.Select(r => new { Resultado = r }).ToList();
+                dataGrid.ItemsSource = ecuacion.Resultados.Select((z, i) => new {
+
+                     X = ecuacion.ValoresX[i], //ingreso a la lista de los valores X
+                    Z = z
+
+                }).ToList();
             }
         }
     }
