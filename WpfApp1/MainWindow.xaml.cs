@@ -39,8 +39,9 @@ namespace Parcialnumero1
 
                 Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
                 ecuacion.Calcular();
+                MessageBox.Show("Los valores han sido calculados, revisar en la pestaña de Resultados");
 
-                dataGrid.ItemsSource = ecuacion.Resultados.Select((z, i) => new {
+            dataGrid.ItemsSource = ecuacion.Resultados.Select((z, i) => new {
 
                      X = ecuacion.ValoresX[i], //ingreso a la lista de los valores X
                     Z = z
