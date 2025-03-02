@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.Model;
 
@@ -6,50 +9,42 @@ namespace Parcialnumero1
 {
     public partial class MainWindow : Window
     {
-
-
-        public class ResultData
+        public MainWindow()
         {
-            public double X { get; set; }
-            public double Y { get; set; }
-            public double Z { get; set; }
+            InitializeComponent();
         }
-
 
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
         {
+                double[] coeficientes = new double[7];
+                double[] coefBoxMiMa1  = new double[4];
 
-            TextBox[] coefBox = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
-            double[] coeficientes = new double[7];
-            TextBox[] coefBoxMiMa = { txtXMin, txtXMax, txtYMin, txtYMax };
-            double[] coefBoxMiMa1 = new double[4];
-                
-            for (int i = 0; i < coefBox.Length; i++)
-            {
-                if (!double.TryParse(coefBox[i].Text, out coeficientes[i]))
+                TextBox[] coefBoxes = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
+                TextBox[] coefBoxMiMa  = { txtXMin, txtXMax, txtYMin, txtYMax };
+
+                for (int i = 0; i < coefBoxes.Length; i++)
                 {
-                    MessageBox.Show("Ingrese valores numéricos válidos en todos los campos.");
-                    return;
+                    if (!double.TryParse(coefBoxes[i].Text, out coeficientes[i]))
+                    {
+                        MessageBox.Show("Ingrese valores numéricos válidos en los coeficientes.");
+                        return;
+                    }
                 }
-            }
-            for (int i = 0; i < coefBoxMiMa.Length; i++)
-            {
-                if (!double.TryParse(coefBoxMiMa[i].Text, out coefBoxMiMa1[i]))
+
+                for (int i = 0; i < coefBoxMiMa .Length; i++)
                 {
-                    MessageBox.Show("Ingrese valores numéricos válidos en todos los campos.");
-                    return;
+                    if (!double.TryParse(coefBoxMiMa [i].Text, out coefBoxMiMa1 [i]))
+                    {
+                        MessageBox.Show("Ingrese valores numéricos válidos en los rangos.");
+                        return;
+                    }
                 }
-            }
 
-            Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
-            List<double> resultados = ecuacion.Calcular();
+                Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
+                List<double> resultados = ecuacion.Calcular();
 
-            foreach (var resultado in resultados)
-            {
-                MessageBox.Show($"El resultado es {resultado}");
+                dataGrid.ItemsSource = resultados.Select(r => new { Resultado = r }).ToList();
             }
         }
-
     }
 
-}

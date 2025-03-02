@@ -106,10 +106,7 @@
 
             </TabItem>
             <TabItem Header="Resultados">
-                <DataGrid
-                    
-                x:Name="dataGrid" AutoGenerateColumns="True" 
-                         ItemsSource="{Binding Results}" IsReadOnly="True"/>
+                <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" IsReadOnly="True"/>
             </TabItem>
         </TabControl>
     </Grid>
