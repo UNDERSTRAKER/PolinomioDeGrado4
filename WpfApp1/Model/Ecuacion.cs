@@ -68,7 +68,6 @@ namespace WpfApp1.Model
                 }
             }
             return resultados;
-            
         }
     }
 }        
