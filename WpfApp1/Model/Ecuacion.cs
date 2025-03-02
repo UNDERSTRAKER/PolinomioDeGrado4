@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace WpfApp1.Model
 {
@@ -7,15 +9,20 @@ namespace WpfApp1.Model
         public double[] Coeficientes { get; set; }
         public double[] CoefBoxMiMa { get; set; }
 
+        public List<double> ValoresX { get; private set; } = new List<double>();  // creo una lista de valores X
+        public List<double> Resultados { get; private set; } = new List<double>(); 
+
         public Ecuacion(double[] coeficientes, double[] coefBoxMiMa)
         {
             Coeficientes = coeficientes;
             CoefBoxMiMa = coefBoxMiMa;
         }
 
-        public List<double> Calcular()
+        public void Calcular() 
         {
-            List<double> resultados = new List<double>();
+            ValoresX.Clear(); // limpio la lista de valores X
+            Resultados.Clear();
+
             double xMin = CoefBoxMiMa[0], xMax = CoefBoxMiMa[1];
             double yMin = CoefBoxMiMa[2], yMax = CoefBoxMiMa[3];
             double paso = 0.5;
@@ -23,12 +30,15 @@ namespace WpfApp1.Model
             if (xMin >= xMax || yMin >= yMax)
             {
                 MessageBox.Show("Los valores mínimos deben ser menores que los valores máximos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             for (double x = xMin; x <= xMax; x += paso)
             {
                 for (double y = yMin; y <= yMax; y += paso)
                 {
+                    ValoresX.Add(x); // añado el resultado de x en la lista de valoresX
+
                     double ecu1 = Math.Cos(Coeficientes[0] * Math.Pow(x, 3));
                     double ecu2 = Math.Sin(Math.Pow(x, 4) / Coeficientes[1]);
                     double ecu3 = Coeficientes[2] * Math.Cos((Coeficientes[3] * x) + Math.Sin(Coeficientes[4] * y));
@@ -36,11 +46,9 @@ namespace WpfApp1.Model
                     double ecu5 = Math.Sqrt((Coeficientes[5] * x) / y + Coeficientes[6]);
 
                     double resultado = ecu1 - ecu2 * ecu3 + ecu4 - ecu5;
-                    resultados.Add(resultado);
+                    Resultados.Add(resultado);
                 }
             }
-
-            return resultados;
         }
     }
 }

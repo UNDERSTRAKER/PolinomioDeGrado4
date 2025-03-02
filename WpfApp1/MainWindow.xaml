@@ -64,7 +64,7 @@
                             </Grid>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Header="Rangos" Margin="392,5,5,176">
+                    <GroupBox Header="Rangos" Margin="392,5,5,250">
                         <StackPanel Margin="5,0,5,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -92,11 +92,6 @@
                                 <Label Content="Y Máximo:" Grid.Row="3" Grid.Column="0"/>
                                 <TextBox x:Name="txtYMax" Grid.Row="3" Grid.Column="1" Margin="2"/>
 
-                                <Label Content="Z Mínimo:" Grid.Row="4" Grid.Column="0"/>
-                                <TextBox x:Name="txtZMin" Grid.Row="4" Grid.Column="1" Margin="2" IsReadOnly="True"/>
-
-                                <Label Content="Z Máximo:" Grid.Row="5" Grid.Column="0"/>
-                                <TextBox x:Name="txtZMax" Grid.Row="5" Grid.Column="1" Margin="2" IsReadOnly="True"/>
                             </Grid>
                         </StackPanel>
                     </GroupBox>
