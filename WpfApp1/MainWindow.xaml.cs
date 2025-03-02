@@ -13,41 +13,41 @@ namespace Parcialnumero1
 
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
         {
-                double[] coeficientes = new double[7];
-                double[] coefBoxMiMa1  = new double[4];
+            double[] coeficientes = new double[7];
+            double[] coefBoxMiMa1 = new double[4];
 
-                TextBox[] coefBoxes = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
-                TextBox[] coefBoxMiMa  = { txtXMin, txtXMax, txtYMin, txtYMax };
+            TextBox[] coefBoxes = { txtM, txtN, txtP, txtQ, txtR, txtS, txtT };
+            TextBox[] coefBoxMiMa = { txtXMin, txtXMax, txtYMin, txtYMax };
 
-                for (int i = 0; i < coefBoxes.Length; i++)
+            for (int i = 0; i < coefBoxes.Length; i++)
+            {
+                if (!double.TryParse(coefBoxes[i].Text, out coeficientes[i]))
                 {
-                    if (!double.TryParse(coefBoxes[i].Text, out coeficientes[i]))
-                    {
-                        MessageBox.Show("Ingrese valores numéricos válidos en los coeficientes.");
-                        return;
-                    }
+                    MessageBox.Show("Ingrese valores numéricos válidos en los coeficientes.");
+                    return;
                 }
+            }
 
-                for (int i = 0; i < coefBoxMiMa .Length; i++)
+            for (int i = 0; i < coefBoxMiMa.Length; i++)
+            {
+                if (!double.TryParse(coefBoxMiMa[i].Text, out coefBoxMiMa1[i]))
                 {
-                    if (!double.TryParse(coefBoxMiMa [i].Text, out coefBoxMiMa1 [i]))
-                    {
-                        MessageBox.Show("Ingrese valores numéricos válidos en los rangos.");
-                        return;
-                    }
+                    MessageBox.Show("Ingrese valores numéricos válidos en los rangos.");
+                    return;
                 }
-
-                Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
-                ecuacion.Calcular();
-                MessageBox.Show("Los valores han sido calculados, revisar en la pestaña de Resultados");
+            }
+            
+            Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
+            ecuacion.Calcular();
 
             dataGrid.ItemsSource = ecuacion.Resultados.Select((z, i) => new {
 
-                     X = ecuacion.ValoresX[i], //ingreso a la lista de los valores X
-                    Z = z
+                    X = ecuacion.ValoresX[i],
+                    y = ecuacion.ValoresY[i],
+                    Z = z,
 
-                }).ToList();
-            }
+            }).ToList();
+            }    
         }
     }
 
