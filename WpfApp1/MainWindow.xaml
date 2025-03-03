@@ -95,7 +95,8 @@
                             </Grid>
                         </StackPanel>
                     </GroupBox>
-                    <Button x:Name="btnCalcular" Content="Calcular" HorizontalAlignment="Center" Height="55" Margin="0,321,0,0" VerticalAlignment="Top" Width="722" BorderBrush="Black" Background="#FF98C69F" Click="btnCalcular_Click"/>
+                    <Image Source="/ecuacion.png" Margin="26,234,26,70"/>
+                    <Button x:Name="btnCalcular" Content="Calcular" HorizontalAlignment="Center" Height="55" Margin="0,321,0,0" VerticalAlignment="Top" Width="722" Background="#FF619EEF" Click="btnCalcular_Click" BorderBrush="{x:Null}"/>
                 </Grid>
 
 

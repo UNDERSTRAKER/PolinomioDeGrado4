@@ -27,7 +27,6 @@ namespace Parcialnumero1
                     return;
                 }
             }
-
             for (int i = 0; i < coefBoxMiMa.Length; i++)
             {
                 if (!double.TryParse(coefBoxMiMa[i].Text, out coefBoxMiMa1[i]))
@@ -36,18 +35,21 @@ namespace Parcialnumero1
                     return;
                 }
             }
-            
+
             Ecuacion ecuacion = new Ecuacion(coeficientes, coefBoxMiMa1);
             ecuacion.Calcular();
 
+
             dataGrid.ItemsSource = ecuacion.Resultados.Select((z, i) => new {
 
-                    X = ecuacion.ValoresX[i],
-                    y = ecuacion.ValoresY[i],
-                    Z = z,
+                X = ecuacion.ValoresX[i],
+                Y = ecuacion.ValoresY[i],
+                Z = z
 
             }).ToList();
-            }    
+
+            MessageBox.Show("Los cálculos han sido completados. Revisar la pestaña de Resultados");
         }
     }
+}
 
