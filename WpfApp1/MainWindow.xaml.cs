@@ -9,6 +9,8 @@ namespace Parcialnumero1
         public MainWindow()
         {
             InitializeComponent();
+            MessageBox.Show("Bienvenido al programa de cálculo de ecuaciones.");
+            MessageBox.Show("Proyecto realizado por Luis Felipe Padilla, Daniel Felipe Celis, Danny Camacho", "Bienvenida", MessageBoxButton.OK);
         }
 
         private void btnCalcular_Click(object sender, RoutedEventArgs e)
